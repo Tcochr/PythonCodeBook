@@ -5,109 +5,109 @@ Experiments, practice and coding katas in python.
 
 Analysis of Partition() in Quicksort: 
 
-  def partition(a,l,h):
-  	p = a[h]
-  	i = l - 1
-  	for j in range(l,h):
-      	if a[j] <= p:
-          	i = i+1
-          	a[i],a[j] = a[j],a[i]
-  	a[i+1],a[h] = a[h],a[i+1]
-  	return i + 1
-  
-  def quicksort(a,l,h):
-  	if l < h:
-      	pi = partition(a,l,h)
-      	quicksort(a,l,pi-1)
-      	quicksort(a,pi+1,h)
-  
-  myArray = {0,1,3,4,2,5}
-  
-  ----------------------------------------
-  
-  quicksort1(myArray,l = 0,h = 5)
-      pi = p(a,0,5) => in<5>pi1 -> pi = 5
-      q_h1(a,l = 0, h = pi=5 -1 = 4)
-      q_l1(a,l = pi=5 +1 = 6,h=5)
-  
-  quicksort_h1(myArray={0,1,3,4,2,5}, l = 0, h = (pi=5 -1 = 4)):
-      l<h? -> T
-      pi = partition(a={0,1,3,4,2,5}, l = 0, h = 4): in<2>pi_h1 -> = 2
-      q_h2(a = {0 1 2 4 3 5}, l = 0, h= pi=2 - 1 = 1)
-      q_l2(a = {0 1 2 4 3 5}, l= pi=2 + 1 = 3, h = 4)
-      
-  quicksort_l1(myArray={0,1,3,4,2,5}, l = (pi=5 +1 = 6), h = 5):
-      l<h ? -> X
-  
-  quicksort_h2(myArray={0,1,3,4,2,5}, l = 0, h = 1):
-      l<h ? -> T
-      pi = p_h2(a = {0 1 3 4 2 5}, l = 0,  h = 1): in<1>pi_h2 -> = 1
-      quicksort(a={0 1 2 4 3 5}, l = 0, h = pi=1 -1 = 0) -> X
-      quicksort(a={0 1 2 4 3 5}, l = pi=1 +1 = 2, h = 1) -> X
-  
-  quicksort_l2(myArray={0,1,3,4,2,5}, l = 3, h = 4):
-      l=3 < h=4 ? -> T
-  	 pi = p_l2(myArray={0 1 2 4 3 5}, l = 3, h = 4): in<3> -> = 3
-      quicksort(a={0 1 2 3 4 5}, l = 3, h = pi=3 + 1 = 4) -> X
-      quicksort(a={0 1 2 3 4 5}, l= pi= 3 + 1 = 4, h = 4) -> X
-  
-  p_1(a,0,5)
-      p = a[5] = 5
-      i = -1
-      for j in range(0,5)
-     	 j = 0
-     		 a[j=0]=0 <= p=5? -> T -> i = i+1 -> i = 0
-     			 a[i=0],a[j=0] = a[j=0],a[i=0] => a = { 0,1,3,4,2,5}
-     	 j = 1
-     		 a[j=1]=1 <= p=5? -> T -> i = i+1 -> i = 1
-     			 a[i=1],a[j=1] = a[j=1],a[j=1] => a = {0,1,3,4,2,5}
-     	 j = 2
-     		 a[j=2]=3 <= p=5? -> T -> i = i+1 -> i = 2
-     			 a[i=2],a[j=2] = a[i=2],a[j=2] => a = {0,1,3,4,2,5}
-     	 j = 3
-     		 a[j=3]=4 <= p=5? -> T -> i = i+1 -> i = 3
-     			 a[i=3],a[j=3] = a[j=3],a[i=3] => a = {0,1,3,4,2,5}
-     	 j = 4
-     		 a[j=4]=2 <= p=5? -> T -> i = i+1 -> i = 4
-     			 a[i=4],a[j=4] = a[j=4],a[i=4] => a = {0,1,3,4,2,5}
-      a[i+1=5],a[5] = a[5],a[i+1=5] => a = {0,1,3,4,2,5}
-      return i=4 + 1 =5    									 out <5>
-  
-  p_h1(a={0,1,3,4,2,5}, l = 0, h = 4):
-      p = a[h=4] = 2
-      i = l=0 - 1 = -1
-      for j in range(l=0, h = 4):
-     	 j = 0
-     		 a[j=0]=0 <= p=2? -> T -> i=-1 +1 -> i = 0
-     		      a[i=0],a[j=0] = a[i=0],a[j=0]
-     	 j = 1
-     		 a[j=1]=1 <= p=2? -> T -> i=0 +1 -> i = 1
-     			 a[i=1],a[j=1] = a[j=1],a[i=1] => a = {0,1,3,4,2,5}
-     	 j = 2
-     		 a[j=2]=3 <= p=2? -> F -> j++
-     	 j = 3
-     		 a[j=3]=4 <= p=2? -> F -> j++
-     	 a[i=1 +1 =2],a[h=4] = a[h=4],a[i=1 +1 =2] => {0 1 2 4 3 5}
-     	 return i=1 + 1 =2   									 out<2>->q_h1
-   		 
-  p_h2(a = {0 1 3 4 2 5}, l = 0, h = 1):
-      p = a[h=1] = 1
-      i = l=0 -1 = -1
-      for j in range(l=0,h=1):
-     	 j = 0
-     		 a[j=0]=0 <= p=1? -> T -> i=-1++ -> i=0
-      a[i=0+1=1],a[h=1] = a[h=1],a[i=0+1=1]
-      return i=0+1 = 1    										 out<1>->q_h2
-  
-  p_l2(myArray={0 1 2 4 3 5}, l = 3, h = 4):
-      p = a[h=4] = 3
-      i = l=3 - 1 = 2
-      for j in range(l=3,h=4)
-     	 j = 3
-     		 a[j=3]=4 <= p=3 ? -> F
-      a[i=2 +1 = 3],a[h=4] = a[h=4],a[i=2 +1 = 3] => a={0 1 2 3 4 5}
-      return i=2 + 1 = 3    									 out<3>->q_l2
-  a = {0 1 2 3 4} -> [FuckYeah]
+    def partition(a,l,h):
+    	p = a[h]
+    	i = l - 1
+    	for j in range(l,h):
+        	if a[j] <= p:
+            	i = i+1
+            	a[i],a[j] = a[j],a[i]
+    	a[i+1],a[h] = a[h],a[i+1]
+    	return i + 1
+    
+    def quicksort(a,l,h):
+    	if l < h:
+        	pi = partition(a,l,h)
+        	quicksort(a,l,pi-1)
+        	quicksort(a,pi+1,h)
+    
+    myArray = {0,1,3,4,2,5}
+    
+    ----------------------------------------
+    
+    quicksort1(myArray,l = 0,h = 5)
+        pi = p(a,0,5) => in<5>pi1 -> pi = 5
+        q_h1(a,l = 0, h = pi=5 -1 = 4)
+        q_l1(a,l = pi=5 +1 = 6,h=5)
+    
+    quicksort_h1(myArray={0,1,3,4,2,5}, l = 0, h = (pi=5 -1 = 4)):
+        l<h? -> T
+        pi = partition(a={0,1,3,4,2,5}, l = 0, h = 4): in<2>pi_h1 -> = 2
+        q_h2(a = {0 1 2 4 3 5}, l = 0, h= pi=2 - 1 = 1)
+        q_l2(a = {0 1 2 4 3 5}, l= pi=2 + 1 = 3, h = 4)
+        
+    quicksort_l1(myArray={0,1,3,4,2,5}, l = (pi=5 +1 = 6), h = 5):
+        l<h ? -> X
+    
+    quicksort_h2(myArray={0,1,3,4,2,5}, l = 0, h = 1):
+        l<h ? -> T
+        pi = p_h2(a = {0 1 3 4 2 5}, l = 0,  h = 1): in<1>pi_h2 -> = 1
+        quicksort(a={0 1 2 4 3 5}, l = 0, h = pi=1 -1 = 0) -> X
+        quicksort(a={0 1 2 4 3 5}, l = pi=1 +1 = 2, h = 1) -> X
+    
+    quicksort_l2(myArray={0,1,3,4,2,5}, l = 3, h = 4):
+        l=3 < h=4 ? -> T
+    	 pi = p_l2(myArray={0 1 2 4 3 5}, l = 3, h = 4): in<3> -> = 3
+        quicksort(a={0 1 2 3 4 5}, l = 3, h = pi=3 + 1 = 4) -> X
+        quicksort(a={0 1 2 3 4 5}, l= pi= 3 + 1 = 4, h = 4) -> X
+    
+    p_1(a,0,5)
+        p = a[5] = 5
+        i = -1
+        for j in range(0,5)
+       	 j = 0
+       		 a[j=0]=0 <= p=5? -> T -> i = i+1 -> i = 0
+       			 a[i=0],a[j=0] = a[j=0],a[i=0] => a = { 0,1,3,4,2,5}
+       	 j = 1
+       		 a[j=1]=1 <= p=5? -> T -> i = i+1 -> i = 1
+       			 a[i=1],a[j=1] = a[j=1],a[j=1] => a = {0,1,3,4,2,5}
+       	 j = 2
+       		 a[j=2]=3 <= p=5? -> T -> i = i+1 -> i = 2
+       			 a[i=2],a[j=2] = a[i=2],a[j=2] => a = {0,1,3,4,2,5}
+       	 j = 3
+       		 a[j=3]=4 <= p=5? -> T -> i = i+1 -> i = 3
+       			 a[i=3],a[j=3] = a[j=3],a[i=3] => a = {0,1,3,4,2,5}
+       	 j = 4
+       		 a[j=4]=2 <= p=5? -> T -> i = i+1 -> i = 4
+       			 a[i=4],a[j=4] = a[j=4],a[i=4] => a = {0,1,3,4,2,5}
+        a[i+1=5],a[5] = a[5],a[i+1=5] => a = {0,1,3,4,2,5}
+        return i=4 + 1 =5    									 out <5>
+    
+    p_h1(a={0,1,3,4,2,5}, l = 0, h = 4):
+        p = a[h=4] = 2
+        i = l=0 - 1 = -1
+        for j in range(l=0, h = 4):
+       	 j = 0
+       		 a[j=0]=0 <= p=2? -> T -> i=-1 +1 -> i = 0
+       		      a[i=0],a[j=0] = a[i=0],a[j=0]
+       	 j = 1
+       		 a[j=1]=1 <= p=2? -> T -> i=0 +1 -> i = 1
+       			 a[i=1],a[j=1] = a[j=1],a[i=1] => a = {0,1,3,4,2,5}
+       	 j = 2
+       		 a[j=2]=3 <= p=2? -> F -> j++
+       	 j = 3
+       		 a[j=3]=4 <= p=2? -> F -> j++
+       	 a[i=1 +1 =2],a[h=4] = a[h=4],a[i=1 +1 =2] => {0 1 2 4 3 5}
+       	 return i=1 + 1 =2   									 out<2>->q_h1
+     		 
+    p_h2(a = {0 1 3 4 2 5}, l = 0, h = 1):
+        p = a[h=1] = 1
+        i = l=0 -1 = -1
+        for j in range(l=0,h=1):
+       	 j = 0
+       		 a[j=0]=0 <= p=1? -> T -> i=-1++ -> i=0
+        a[i=0+1=1],a[h=1] = a[h=1],a[i=0+1=1]
+        return i=0+1 = 1    										 out<1>->q_h2
+    
+    p_l2(myArray={0 1 2 4 3 5}, l = 3, h = 4):
+        p = a[h=4] = 3
+        i = l=3 - 1 = 2
+        for j in range(l=3,h=4)
+       	 j = 3
+       		 a[j=3]=4 <= p=3 ? -> F
+        a[i=2 +1 = 3],a[h=4] = a[h=4],a[i=2 +1 = 3] => a={0 1 2 3 4 5}
+        return i=2 + 1 = 3    									 out<3>->q_l2
+    a = {0 1 2 3 4} -> [FuckYeah]
     
 Analysis of Recursive Word Combinations: 
 
@@ -454,7 +454,9 @@ Quicksort Analysis:
 
 Three Arrays Analysis: 
 
-<iframe src="https://docs.google.com/document/d/1DlcHknspAe5yaDrTuvPhsP7FfcqwK0FojixsEGBvyno/edit?usp=drive_link" width="640" height="480"></iframe>
+![image](https://github.com/Tcochr/PythonCodeBook/assets/29736306/f444b418-d6e3-456d-a089-ea4423e3b825)
+
+
 
 
 
