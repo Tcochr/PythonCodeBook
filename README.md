@@ -1,5 +1,5 @@
 # PythonCodeBook
-Experiments, practice and coding katas in python. 
+Personal experiments, practice and coding katas in python. Not really meant for public. 
 
 
 
