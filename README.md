@@ -453,8 +453,14 @@ Quicksort Analysis:
     Hence, T(n) is O(n^2) by the above proof
 
 Three Arrays Analysis: 
+![ThreeArrays-images-0](https://github.com/Tcochr/PythonCodeBook/assets/29736306/b8392dad-5434-4400-8688-c5a14e032487)
+![ThreeArrays-images-1](https://github.com/Tcochr/PythonCodeBook/assets/29736306/f6abc14d-ef89-4868-bafd-aa9fcf81babe)
+![ThreeArrays-images-2](https://github.com/Tcochr/PythonCodeBook/assets/29736306/cfe49801-c99f-40b8-bb14-95b8a7fae4a1)
+![ThreeArrays-images-3](https://github.com/Tcochr/PythonCodeBook/assets/29736306/9ca3f76a-61bf-48c1-8daf-dfd267d2250e)
+![ThreeArrays-images-4](https://github.com/Tcochr/PythonCodeBook/assets/29736306/588f60c1-80fc-43d8-b1d4-6ddabfd6291f)
+![ThreeArrays-images-5](https://github.com/Tcochr/PythonCodeBook/assets/29736306/22c09894-c5c2-4142-b7e2-99234556ca11)
 
-![image](https://github.com/Tcochr/PythonCodeBook/assets/29736306/f444b418-d6e3-456d-a089-ea4423e3b825)
+
 
 
 
